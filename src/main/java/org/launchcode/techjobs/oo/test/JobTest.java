@@ -50,5 +50,19 @@ public class JobTest {
         }
 
 
+        //Generate two Job objects that have identical field values EXCEPT for id (ids are always unique? pointless to add)
+        // Test that equals returns false (aka assertFalse)
+        @Test
+        public void testJobsForEquality(){
+        Job job1 = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
+        Job job2 = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
+
+        //to use assertFalse it needs a boolean condition initialized below
+        //even tho all the values are same, the id will always be unique so job1.equals(job2) will always be false
+        boolean notEqual = job1.equals(job2);
+        assertFalse(notEqual);
+
+        }
+
 }
 
