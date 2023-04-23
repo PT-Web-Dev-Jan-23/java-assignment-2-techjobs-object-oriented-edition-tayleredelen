@@ -6,20 +6,25 @@ public class Employer {
 
     private int id;
     private static int nextId = 1;
+    //Declares the variable nextId.
+    //Since it is static, its changing value is NOT stored within any Employer object.
     private String value;
 
     public Employer() {
         id = nextId;
         nextId++;
     }
+    //The first constructor accepts no arguments and assigns the value of nextId to the id field.
+    //It then increments nextId. Thus, every new Employer object will get a different ID number.
 
     public Employer(String value) {
         this();
         this.value = value;
     }
 
-    // Custom toString, equals, and hashCode methods:
 
+
+    // Custom toString, equals, and hashCode methods:
     @Override
     public String toString() {
         return value;
@@ -39,7 +44,6 @@ public class Employer {
     }
 
     // Getters and Setters:
-
     public int getId() {
         return id;
     }
