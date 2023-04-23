@@ -14,8 +14,8 @@ public class PositionType {
     }
 
     public PositionType(String value) {
-        this();
-        this.value = value;
+        this(); //calls first constructor to initialize the id field
+        this.value = value; //initialize the value field for a new Location object
     }
 
     // TODO: Add a custom toString() method that returns the data stored in 'value'.

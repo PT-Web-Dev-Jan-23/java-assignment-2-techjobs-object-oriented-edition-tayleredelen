@@ -14,8 +14,8 @@ public class CoreCompetency {
     }
 
     public CoreCompetency(String value) {
-        this();
-        this.value = value;
+        this(); //calls first constructor to initialize the id field
+        this.value = value; //initialize the value field for a new Location object
     }
 
     // Custom toString, equals, and hashCode methods:
