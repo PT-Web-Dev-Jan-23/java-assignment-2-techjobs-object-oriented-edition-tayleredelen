@@ -58,9 +58,27 @@ public class JobTest {
         Job job2 = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
 
         //to use assertFalse it needs a boolean condition initialized below
-        //even tho all the values are same, the id will always be unique so job1.equals(job2) will always be false
         boolean notEqual = job1.equals(job2);
-        assertFalse(notEqual);
+        //even tho all the values are same, the id will always be unique so job1.equals(job2) will always be false
+            assertFalse(notEqual);
+
+        }
+
+
+    //1) When passed a Job object, it should return a string that contains a blank line before and after the job information.
+    //2) The string should contain a label for each field, followed by the data stored in that field. Each field should be on its own line.
+    //3) If a field is empty, the method should add, “Data not available” after the label.
+    //4) (Bonus) If a Job object ONLY contains data for the id field, the method should return, “OOPS! This job does not seem to exist.” (try/catch/throw)
+    //Be sure to use assertEquals to verify that these characters are correct
+    //This test should check that the first and last characters of the string both the newline character, \n.
+    //Recall that can get the character at a given position in a string using the string method charAt.
+
+        @Test
+        public void testToStringStartsAndEndsWithNewLine(){
+            Job job = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
+            String jobTest = job.toString();
+            assertEquals(jobTest.charAt(0), "\n");
+            assertEquals(jobTest.charAt(jobTest.length() - 1), "\n");
 
         }
 
