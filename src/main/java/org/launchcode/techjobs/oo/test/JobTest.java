@@ -79,6 +79,12 @@ public class JobTest {
             String jobTest = job.toString();
             assertEquals(jobTest.charAt(0), '\n');
             assertEquals(jobTest.charAt(jobTest.length() - 1), '\n');
+        }
+
+        @Test
+        public void testToStringContainsCorrectLabelsAndData() {
+            Job job = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
+            String jobTest = job.toString();
             assertEquals(jobTest, "\nID: 2\n" +
                     "\nName: SOSS 4\n" +
                     "\nEmployer: Wells Fargo\n" +
@@ -87,10 +93,10 @@ public class JobTest {
                     "\nCore Competency: Data entry\n");
         }
 
-        @Test
-        public void testToStringContainsCorrectLabelsAndData() {
-
-        }
+//        @Test
+//        public void testToStringHandlesEmptyField() {
+//
+//        }
 
 }
 
