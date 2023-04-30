@@ -48,10 +48,37 @@ public class Job {
         return Objects.hash(getId());
     }
 
-
+//    ID:  _______
+//    Name: _______
+//    Employer: _______
+//    Location: _______
+//    Position Type: _______
+//    Core Competency: _______
     @Override //still fails :(
     public String toString() {
         return "\n" +
+                "ID: " +
+                nextId +
+                "\n"+
+                "\n" +
+                "Name: " +
+                name +
+                "\n" +
+                 "\n" +
+                "Employer: " +
+                employer +
+                "\n" +
+                "\n" +
+                "Location: " +
+                location +
+                "\n" +
+                 "\n" +
+                "Position Type: " +
+                positionType +
+                "\n" +
+                "\n" +
+                "Core Competency: " +
+                coreCompetency +
                 "\n";
     }
 

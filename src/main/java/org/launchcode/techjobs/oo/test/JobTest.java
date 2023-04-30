@@ -79,6 +79,16 @@ public class JobTest {
             String jobTest = job.toString();
             assertEquals(jobTest.charAt(0), '\n');
             assertEquals(jobTest.charAt(jobTest.length() - 1), '\n');
+            assertEquals(jobTest, "\nID: 2\n" +
+                    "\nName: SOSS 4\n" +
+                    "\nEmployer: Wells Fargo\n" +
+                    "\nLocation: STL\n" +
+                    "\nPosition Type: Operations\n" +
+                    "\nCore Competency: Data entry\n");
+        }
+
+        @Test
+        public void testToStringContainsCorrectLabelsAndData() {
 
         }
 
