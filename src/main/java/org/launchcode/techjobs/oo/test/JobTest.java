@@ -52,7 +52,7 @@ public class JobTest {
 
         //Generate two Job objects that have identical field values EXCEPT for id (ids are always unique? pointless to add)
         // Test that equals returns false (aka assertFalse)
-        @Test
+        @Test //PASS
         public void testJobsForEquality(){
         Job job1 = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
         Job job2 = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
@@ -73,7 +73,7 @@ public class JobTest {
     //This test should check that the first and last characters of the string both the newline character, \n.
     //Recall that can get the character at a given position in a string using the string method charAt.
 
-        @Test
+        @Test //PASS
         public void testToStringStartsAndEndsWithNewLine(){
             Job job = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
             String jobTest = job.toString();
@@ -81,11 +81,11 @@ public class JobTest {
             assertEquals(jobTest.charAt(jobTest.length() - 1), '\n');
         }
 
-        @Test
+        @Test //PASS
         public void testToStringContainsCorrectLabelsAndData() {
             Job job = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
             String jobTest = job.toString();
-            assertEquals(jobTest, "\nID: 2\n" +
+            assertEquals(jobTest, "\nID: " + (job.getId() + 1) + "\n" +
                     "\nName: SOSS 4\n" +
                     "\nEmployer: Wells Fargo\n" +
                     "\nLocation: STL\n" +
@@ -93,10 +93,24 @@ public class JobTest {
                     "\nCore Competency: Data entry\n");
         }
 
-//        @Test
-//        public void testToStringHandlesEmptyField() {
-//
-//        }
+        @Test //PASS
+        public void testToStringHandlesEmptyField() {
+            Job testJob = new Job(null, null, null, null, null);
+            String emptyFieldTest =
+                    "\n" +
+                    (testJob.getId()) +
+                    "\n" +
+                    "Name: Data not available" +
+                    "\n" +
+                    "Employer: Data not available" +
+                    "\n" +
+                    "Location: Data not available" +
+                    "\n" +
+                    "Position Type: Data not available" +
+                    "\n" +
+                    "Core Competency: Data not available" +
+                    "\n";
+        }
 
 }
 

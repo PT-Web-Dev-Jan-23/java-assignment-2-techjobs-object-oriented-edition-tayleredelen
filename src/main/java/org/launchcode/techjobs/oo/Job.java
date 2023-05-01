@@ -54,8 +54,15 @@ public class Job {
 //    Location: _______
 //    Position Type: _______
 //    Core Competency: _______
-    @Override //still fails :(
+    @Override
     public String toString() {
+        if (name == null || name.isEmpty() ||
+                employer == null || employer.getValue().isEmpty() ||
+                location == null || location.getValue().isEmpty() ||
+                positionType == null || positionType.getValue().isEmpty() ||
+                coreCompetency == null || coreCompetency.getValue().isEmpty()) {
+            throw new IllegalArgumentException("Data not available");
+        }
         return "\n" +
                 "ID: " +
                 nextId +
