@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 
+import org.junit.Test;
+
 import java.util.Objects;
 
 public class Job {
@@ -54,15 +56,35 @@ public class Job {
 //    Location: _______
 //    Position Type: _______
 //    Core Competency: _______
-    @Override
+@Test //PASS
+public void testToStringHandlesEmptyField() {
+    Job testJob = new Job(null, null, null, null, null);
+    String emptyFieldTest =
+            "\n" +
+                    (testJob.getId()) +
+                    "\n" +
+                    "Name: Data not available" +
+                    "\n" +
+                    "Employer: Data not available" +
+                    "\n" +
+                    "Location: Data not available" +
+                    "\n" +
+                    "Position Type: Data not available" +
+                    "\n" +
+                    "Core Competency: Data not available" +
+                    "\n";
+}@Override
     public String toString() {
-        if (name == null || name.isEmpty() ||
-                employer == null || employer.getValue().isEmpty() ||
-                location == null || location.getValue().isEmpty() ||
-                positionType == null || positionType.getValue().isEmpty() ||
-                coreCompetency == null || coreCompetency.getValue().isEmpty()) {
-            throw new IllegalArgumentException("Data not available");
-        }
+//        if (name == null || name.isEmpty() ||
+//                employer == null || employer.getValue().isEmpty() ||
+//                location == null || location.getValue().isEmpty() ||
+//                positionType == null || positionType.getValue().isEmpty() ||
+//                coreCompetency == null || coreCompetency.getValue().isEmpty()) {
+//            System.out.println("Data not available");
+            //I need to create a loop, cuz this current condition is just if any field is null/empty
+            //print "Data not available" I need to iterate thru each field and apply that msg to only the
+            //null/empty while keeping the appropriate fields that were completed
+//        }
         return "\n" +
                 "ID: " +
                 nextId +

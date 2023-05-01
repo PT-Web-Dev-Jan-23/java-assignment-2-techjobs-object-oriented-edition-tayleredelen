@@ -54,8 +54,8 @@ public class JobTest {
         // Test that equals returns false (aka assertFalse)
         @Test //PASS
         public void testJobsForEquality(){
-        Job job1 = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
-        Job job2 = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         //to use assertFalse it needs a boolean condition initialized below
         boolean notEqual = job1.equals(job2);
@@ -75,7 +75,7 @@ public class JobTest {
 
         @Test //PASS
         public void testToStringStartsAndEndsWithNewLine(){
-            Job job = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
+            Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             String jobTest = job.toString();
             assertEquals(jobTest.charAt(0), '\n');
             assertEquals(jobTest.charAt(jobTest.length() - 1), '\n');
@@ -83,14 +83,14 @@ public class JobTest {
 
         @Test //PASS, not sure why job.getId() needs + 1???
         public void testToStringContainsCorrectLabelsAndData() {
-            Job job = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
+            Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             String jobTest = job.toString();
             assertEquals(jobTest, "\nID: " + (job.getId() + 1) + "\n" +
-                    "\nName: SOSS 4\n" +
-                    "\nEmployer: Wells Fargo\n" +
-                    "\nLocation: STL\n" +
-                    "\nPosition Type: Operations\n" +
-                    "\nCore Competency: Data entry\n");
+                    "\nName: Product tester\n" +
+                    "\nEmployer: ACME\n" +
+                    "\nLocation: Desert\n" +
+                    "\nPosition Type: Quality control\n" +
+                    "\nCore Competency: Persistence\n");
         }
 
         @Test //PASS
