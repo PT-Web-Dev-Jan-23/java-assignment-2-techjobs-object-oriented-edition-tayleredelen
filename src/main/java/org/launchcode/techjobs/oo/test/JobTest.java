@@ -81,7 +81,7 @@ public class JobTest {
             assertEquals(jobTest.charAt(jobTest.length() - 1), '\n');
         }
 
-        @Test //PASS
+        @Test //PASS, not sure why job.getId() needs + 1???
         public void testToStringContainsCorrectLabelsAndData() {
             Job job = new Job("SOSS 4", new Employer("Wells Fargo"), new Location("STL"), new PositionType("Operations"), new CoreCompetency("Data entry"));
             String jobTest = job.toString();
