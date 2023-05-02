@@ -73,7 +73,7 @@ public class JobTest {
     //This test should check that the first and last characters of the string both the newline character, \n.
     //Recall that can get the character at a given position in a string using the string method charAt.
 
-        @Test //PASS
+        @Test //PASS, not sure why jobTest.length() needs - 1??? Chris says OK
         public void testToStringStartsAndEndsWithNewLine(){
             Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             String jobTest = job.toString();
@@ -81,7 +81,7 @@ public class JobTest {
             assertEquals(jobTest.charAt(jobTest.length() - 1), '\n');
         }
 
-        @Test //PASS, not sure why job.getId() needs + 1???
+        @Test //PASS, not sure why job.getId() needs + 1??? Chris says OK
         public void testToStringContainsCorrectLabelsAndData() {
             Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             String jobTest = job.toString();
@@ -95,22 +95,30 @@ public class JobTest {
 
         @Test //PASS
         public void testToStringHandlesEmptyField() {
-            Job testJob = new Job(null, null, null, null, null);
-            String emptyFieldTest =
+            Job job = new Job("Product tester", null, null, null, null);
+            String jobTest = job.toString();
+            assertEquals(jobTest, "\n" +
+                    "ID: " +
+                    (job.getId()) +
                     "\n" +
-                    (testJob.getId()) +
+                    "Name: " +
+                    (job.getName()) +
                     "\n" +
-                    "Name: Data not available" +
+                    "Employer: " +
+                    (job.getEmployer()) +
                     "\n" +
-                    "Employer: Data not available" +
+                    "Location: " +
+                    (job.getLocation()) +
                     "\n" +
-                    "Location: Data not available" +
+                    "Position Type: " +
+                    (job.getPositionType()) +
                     "\n" +
-                    "Position Type: Data not available" +
-                    "\n" +
-                    "Core Competency: Data not available" +
-                    "\n";
+                    "Core Competency: " +
+                    (job.getCoreCompetency()) +
+                    "\n");
         }
+
+
 
 }
 

@@ -56,60 +56,64 @@ public class Job {
 //    Location: _______
 //    Position Type: _______
 //    Core Competency: _______
-@Test //PASS
-public void testToStringHandlesEmptyField() {
-    Job testJob = new Job(null, null, null, null, null);
-    String emptyFieldTest =
-            "\n" +
-                    (testJob.getId()) +
-                    "\n" +
-                    "Name: Data not available" +
-                    "\n" +
-                    "Employer: Data not available" +
-                    "\n" +
-                    "Location: Data not available" +
-                    "\n" +
-                    "Position Type: Data not available" +
-                    "\n" +
-                    "Core Competency: Data not available" +
-                    "\n";
-}@Override
-    public String toString() {
+
+
+//@Override
+//    public String toString() {
 //        if (name == null || name.isEmpty() ||
 //                employer == null || employer.getValue().isEmpty() ||
 //                location == null || location.getValue().isEmpty() ||
 //                positionType == null || positionType.getValue().isEmpty() ||
 //                coreCompetency == null || coreCompetency.getValue().isEmpty()) {
 //            System.out.println("Data not available");
-            //I need to create a loop, cuz this current condition is just if any field is null/empty
-            //print "Data not available" I need to iterate thru each field and apply that msg to only the
-            //null/empty while keeping the appropriate fields that were completed
 //        }
-        return "\n" +
-                "ID: " +
-                nextId +
-                "\n"+
-                "\n" +
-                "Name: " +
-                name +
-                "\n" +
-                 "\n" +
-                "Employer: " +
-                employer +
-                "\n" +
-                "\n" +
-                "Location: " +
-                location +
-                "\n" +
-                 "\n" +
-                "Position Type: " +
-                positionType +
-                "\n" +
-                "\n" +
-                "Core Competency: " +
-                coreCompetency +
-                "\n";
+
+    //I need to create a loop, cuz this current condition is just if any field is null/empty
+    //print "Data not available" I need to iterate thru each value and apply that msg to only the
+    //null/empty key while keeping the appropriate fields that were completed
+
+//    String[] fields = {"ID", "Name", "Employer", "Location", "Position Type", "Core Competency"};
+//    String[] dataEntered = {String.valueOf(this.getId()), this.getName(), this.getEmployer().toString(), this.getLocation().toString(), this.getPositionType().toString(), this.getCoreCompetency().toString()};
+//
+//    for (int i = 0; i < dataEntered.length; i++) {
+//        if (dataEntered[i] == null || dataEntered[i].isEmpty()) {
+//            dataEntered[i] = "Data not available";
+//        }
+//    }
+
+
+    private String output(String field, String dataEntered) {
+        String colon = ": ";
+        if (dataEntered == null || dataEntered.isEmpty()) {
+            dataEntered = "Data not available";
+        }
+        return field + colon + dataEntered;
     }
+@Override
+public String toString() {
+    String idOutput = output("ID", String.valueOf(this.id));
+    String nameOutput = output("Name", this.name);
+    String employerOutput = output("Employer", String.valueOf(this.employer));
+    String locationOutput = output("Location", String.valueOf(this.location));
+    String positionTypeOutput = output("Position Type", String.valueOf(this.positionType));
+    String coreCompetencyOutput = output("Core Competency", String.valueOf(this.coreCompetency));
+
+    return "\n" +
+            idOutput +
+            "\n" +
+            nameOutput +
+            "\n" +
+            employerOutput +
+            "\n" +
+            locationOutput +
+            "\n" +
+            positionTypeOutput +
+            "\n" +
+            coreCompetencyOutput +
+            "\n";
+}
+
+
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
